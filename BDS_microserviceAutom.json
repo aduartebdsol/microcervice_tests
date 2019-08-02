@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "43aabc19-a4ac-467a-80bc-5e3009ad0da5",
+		"name": "BDS_microserviceAutom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "para login obtener token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3bcf2b94-1af6-4d48-85f2-6881f09df3ef",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    if (responseCode.code === 200) {",
+							"        ",
+							"    } else {",
+							"        console.log(\"sape\")",
+							"        var data = JSON.parse(responseBody);",
+							"        pm.sendRequest({",
+							"            url: 'https://hooks.slack.com/services/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',",
+							"            method: 'POST',",
+							"            body: {",
+							"                mode: 'raw',",
+							"                raw: JSON.stringify({ ",
+							"                    text: \"Request URL     : ```\"    + request.url +\"``` \\n\" +",
+							"                          \"Request Body    : ```\"    + request.data +\"```\\n\" +",
+							"                          \"Response Status : ```\"    + responseCode.code +\"```\\n\" +",
+							"                          \"Response Body   : ```\"    + responseBody +\"```\\n\" ",
+							"                })",
+							"            }",
+							"        }, function (err, res) {",
+							"            console.log(res);",
+							"        });",
+							"        ",
+							"        pm.expect.fail(\"Response is not 200\")",
+							"    }",
+							"});",
+							"",
+							"    ",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"aduarte@bdsol.com.ar\",\n    \"passcode\": \"123456\"\n}"
+				},
+				"url": {
+					"raw": "https://api-dev.bdsdigital.com.ar:443/auth/v1/sign-in",
+					"protocol": "https",
+					"host": [
+						"api-dev",
+						"bdsdigital",
+						"com",
+						"ar"
+					],
+					"port": "443",
+					"path": [
+						"auth",
+						"v1",
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
