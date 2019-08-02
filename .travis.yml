@@ -12,3 +12,10 @@ before_script:
 
 script:
   - node_modules/.bin/newman run BDS_microserviceAutom.json
+
+notifications:
+  slack:
+    rooms:
+      - bdsar:0M9kV1Khc0s450dRrAB8YrMO#pruebas_notf_qe
+    on_success: change 
+    on_failure: change 
