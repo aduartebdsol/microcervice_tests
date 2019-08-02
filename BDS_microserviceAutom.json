@@ -15,7 +15,7 @@
 						"exec": [
 							"",
 							"pm.test(\"Status code is 200\", function () {",
-							"    if (responseCode.code === 200) {",
+							"    if (responseCode.code === 300) {",
 							"        ",
 							"    } else {",
 							"        console.log(\"sape\")",
