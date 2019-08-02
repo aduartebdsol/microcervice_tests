@@ -5,12 +5,12 @@ var threeSecondInterval = function(){
   let axiosConfig = {
     headers: {
         'Content-Type': 'application/json;charset=UTF-8',
-        "Authorization": "token tig9ipRDb7GLbXGkQb0h5A",
+        "Authorization": "token 3fchQEwR410rbhTo9Lkn2w",
         "Travis-api-version": "3",
         "Accept": "application/json",
     }
   };
-  axios.post('https://api.travis-ci.org/repo/AlanGDC%2FOveractiveSeleniumExcercise/requests', {
+  axios.post('https://api.travis-ci.org/repo/aduartebdsol%2Fmicrocervice_tests/requests', {   
     request: data
   },axiosConfig)
   .then((res) => {
@@ -21,7 +21,7 @@ var threeSecondInterval = function(){
     console.error(error)
   })
 }
-setInterval(threeSecondInterval, 3000) //corre cada 10 min
+setInterval(threeSecondInterval, 900000) //corre cada 15 min
 
 //For specific times, use a chron job
 var fifteenSeconsAfterMinute = function() {
