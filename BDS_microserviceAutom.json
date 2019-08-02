@@ -27,7 +27,7 @@
 							"                mode: 'raw',",
 							"                raw: JSON.stringify({ ",
 							"                    text: ",
-							"                          \"Creo que fallo el microservicio :\" +",
+							"                          \"Creo que fallo el microservicio :\" +\"``` \\n\" +",
 							"                          \"Request URL     : ```\"    + request.url +\"``` \\n\" +",
 							"                          \"Request Body    : ```\"    + request.data +\"```\\n\" +",
 							"                          \"Response Status : ```\"    + responseCode.code +\"```\\n\" +",
