@@ -1,6 +1,6 @@
 //OnInterval
 var threeSecondInterval = function(){
-  console.log("Another 3 seconds have gone by. What did you do in them?");
+  console.log("Another 3 seconds have gone by. What did you do in them? eh?");
   const data = { branch: 'master' };
   let axiosConfig = {
     headers: {
