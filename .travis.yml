@@ -16,6 +16,6 @@ script:
 notifications:
   slack:
     rooms:
-      - bdsar:0M9kV1Khc0s450dRrAB8YrMO#pruebas_notf_qe
+      - bdsar:0M9kV1Khc0s450dRrAB8YrMO#notf_bot_microserv
     on_success: change 
     on_failure: change 

@@ -14,6 +14,10 @@
 						"id": "3bcf2b94-1af6-4d48-85f2-6881f09df3ef",
 						"exec": [
 							"",
+							"let json_response = JSON.parse(responseBody);",
+							"",
+							"pm.globals.set(\"authToken\", json_response.accessToken);",
+							"",
 							"pm.test(\"Status code is 200\", function () {",
 							"    if (responseCode.code === 200) {",
 							"        ",
@@ -21,14 +25,14 @@
 							"        console.log(\"sape\")",
 							"        var data = JSON.parse(responseBody);",
 							"        pm.sendRequest({",
-							"            url: 'https://hooks.slack.com/services/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',",
+							"            url: 'https://hooks.slack.com/services/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',",
 							"            method: 'POST',",
 							"            body: {",
 							"                mode: 'raw',",
 							"                raw: JSON.stringify({ ",
 							"                    text: ",
 							"                          \"Creo que fallo el microservicio :\" +\"``` \\n\" +",
-							"                          \"Request URL     : ```\"    + request.url +\"``` \\n\" +",
+							"                          \"Request URL     : \"    + request.url +\"``` \\n\" +",
 							"                          \"Request Body    : ```\"    + request.data +\"```\\n\" +",
 							"                          \"Response Status : ```\"    + responseCode.code +\"```\\n\" +",
 							"                          \"Response Body   : ```\"    + responseBody +\"```\\n\" ",
@@ -77,6 +81,303 @@
 						"auth",
 						"v1",
 						"sign-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Activities Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4da5e05-9c19-4ca6-9bc0-c9875426db4b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    if (responseCode.code === 200) {",
+							"        ",
+							"    } else {",
+							"        console.log(\"sape\")",
+							"        var data = JSON.parse(responseBody);",
+							"        pm.sendRequest({",
+							"            url: 'https://hooks.slack.com/services/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',",
+							"            method: 'POST',",
+							"            body: {",
+							"                mode: 'raw',",
+							"                raw: JSON.stringify({ ",
+							"                    text: ",
+							"                          \"Creo que fallo el microservicio :\" +\"``` \\n\" +",
+							"                          \"Request URL     : ```\"    + request.url +\"``` \\n\" +",
+							"                          ",
+							"                          \"Response Status : ```\"    + responseCode.code +\"```\\n\" +",
+							"                          \"Response Body   : ```\"    + responseBody +\"```\\n\" ",
+							"                })",
+							"            }",
+							"        }, function (err, res) {",
+							"            console.log(res);",
+							"        });",
+							"        ",
+							"        pm.expect.fail(\"Response is not 200\")",
+							"    }",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api-dev.bdsdigital.com.ar/accounts/v1/89/transactions?fromDate=2019-05-01",
+					"protocol": "http",
+					"host": [
+						"api-dev",
+						"bdsdigital",
+						"com",
+						"ar"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"89",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "fromDate",
+							"value": "2019-05-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accounts Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "481c4f08-1706-4c5c-a1e0-ac2b53bcf57a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    if (responseCode.code === 200) {",
+							"        ",
+							"    } else {",
+							"        console.log(\"sape\")",
+							"        var data = JSON.parse(responseBody);",
+							"        pm.sendRequest({",
+							"            url: 'https://hooks.slack.com/services/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',",
+							"            method: 'POST',",
+							"            body: {",
+							"                mode: 'raw',",
+							"                raw: JSON.stringify({ ",
+							"                    text: ",
+							"                          \"Creo que fallo el microservicio :\" +\"``` \\n\" +",
+							"                          \"Request URL     : ```\"    + request.url +\"``` \\n\" +",
+							"                          ",
+							"                          \"Response Status : ```\"    + responseCode.code +\"```\\n\" +",
+							"                          \"Response Body   : ```\"    + responseBody +\"```\\n\" ",
+							"                })",
+							"            }",
+							"        }, function (err, res) {",
+							"            console.log(res);",
+							"        });",
+							"        ",
+							"        pm.expect.fail(\"Response is not 200\")",
+							"    }",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api-dev.bdsdigital.com.ar/accounts/v1/me",
+					"protocol": "http",
+					"host": [
+						"api-dev",
+						"bdsdigital",
+						"com",
+						"ar"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ticket PF Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ab91d32d-b94b-4e70-9f6e-d7c4d8b3e0b5",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    if (responseCode.code === 200) {",
+							"        ",
+							"    } else {",
+							"        console.log(\"sape\")",
+							"        var data = JSON.parse(responseBody);",
+							"        pm.sendRequest({",
+							"            url: 'https://hooks.slack.com/services/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',",
+							"            method: 'POST',",
+							"            body: {",
+							"                mode: 'raw',",
+							"                raw: JSON.stringify({ ",
+							"                    text: ",
+							"                          \"Creo que fallo el microservicio :\" +\"``` \\n\" +",
+							"                          \"Request URL     : ```\"    + request.url +\"``` \\n\" +",
+							"                          ",
+							"                          \"Response Status : ```\"    + responseCode.code +\"```\\n\" +",
+							"                          \"Response Body   : ```\"    + responseBody +\"```\\n\" ",
+							"                })",
+							"            }",
+							"        }, function (err, res) {",
+							"            console.log(res);",
+							"        });",
+							"        ",
+							"        pm.expect.fail(\"Response is not 200\")",
+							"    }",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api-dev.bdsdigital.com.ar/fixedDeposits/data/v1/5772",
+					"protocol": "http",
+					"host": [
+						"api-dev",
+						"bdsdigital",
+						"com",
+						"ar"
+					],
+					"path": [
+						"fixedDeposits",
+						"data",
+						"v1",
+						"5772"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Details Activity Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "af08ff06-62f1-4caa-946f-d3d56628c35b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    if (responseCode.code === 200) {",
+							"        ",
+							"    } else {",
+							"        console.log(\"sape\")",
+							"        var data = JSON.parse(responseBody);",
+							"        pm.sendRequest({",
+							"            url: 'https://hooks.slack.com/services/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',",
+							"            method: 'POST',",
+							"            body: {",
+							"                mode: 'raw',",
+							"                raw: JSON.stringify({ ",
+							"                    text: ",
+							"                          \"Creo que fallo el microservicio :\" +\"``` \\n\" +",
+							"                          \"Request URL     : ```\"    + request.url +\"``` \\n\" +",
+							"                          ",
+							"                          \"Response Status : ```\"    + responseCode.code +\"```\\n\" +",
+							"                          \"Response Body   : ```\"    + responseBody +\"```\\n\" ",
+							"                })",
+							"            }",
+							"        }, function (err, res) {",
+							"            console.log(res);",
+							"        });",
+							"        ",
+							"        pm.expect.fail(\"Response is not 200\")",
+							"    }",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api-dev.bdsdigital.com.ar/accounts/v1/transactions/2784856",
+					"protocol": "http",
+					"host": [
+						"api-dev",
+						"bdsdigital",
+						"com",
+						"ar"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"transactions",
+						"2784856"
 					]
 				}
 			},
