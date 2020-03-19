@@ -9,13 +9,14 @@ before_script:
   - node --version
   - npm --version
   - node_modules/.bin/newman --version
-
+  - sudo apt-get update
+  - sudo apt-get --allow-unauthenticated install openvpn
 script:
-  - node_modules/.bin/newman run BDS_microserviceAutom.json
-
-notifications:
-  slack:
-    rooms:
-      - bdsar:0M9kV1Khc0s450dRrAB8YrMO#notf_bot_microserv
-    on_success: change 
-    on_failure: change 
+  # - node_modules/.bin/newman run BDS_microserviceAutom.json
+  - echo HOLA
+# notifications:
+#   slack:
+#     rooms:
+#       - bdsar:0M9kV1Khc0s450dRrAB8YrMO#notf_bot_microserv
+#     on_success: change
+#     on_failure: change
