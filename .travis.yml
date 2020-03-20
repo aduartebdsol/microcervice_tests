@@ -13,7 +13,7 @@ before_script:
   - sudo apt-get --allow-unauthenticated install openvpn
 script:
   # - node_modules/.bin/newman run BDS_microserviceAutom.json
-  - sudo openvpn --config HIT-UDP4-10195-config.ovpn --user Aduarte --http-proxy s p up
+  - sudo openvpn --config HIT-UDP4-10195-config.ovpn #--user Aduarte --http-proxy s p up
 # notifications:
 #   slack:
 #     rooms:
