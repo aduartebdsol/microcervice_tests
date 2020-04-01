@@ -8,12 +8,13 @@ node_js:
 before_script:
   # - node --version
   # - npm --version
-  # - node_modules/.bin/newman --version
+  - npm install newman
+  - node_modules/.bin/newman --version
   - sudo apt-get update
   - sudo apt-get --allow-unauthenticated install openvpn
 script:
-  # - node_modules/.bin/newman run BDS_microserviceAutom.json
-  - sudo openvpn --config HIT-UDP4-10195-config.ovpn #--user Aduarte --http-proxy s p up
+  - node_modules/.bin/newman run https://www.getpostman.com/collections/a95e1f5726937d00ef43
+  #- sudo openvpn --config HIT-UDP4-10195-config.ovpn #--user Aduarte --http-proxy s p up
 # notifications:
 #   slack:
 #     rooms:
