@@ -12,9 +12,10 @@ before_script:
   - node_modules/.bin/newman --version
   - sudo apt-get update
   - sudo apt-get --allow-unauthenticated install openvpn
+  - sudo chmod script.sh
 script:
   - sudo openvpn --config HIT-UDP4-10195-config.ovpn &>>openvpn-client.log &
-  - node_modules/.bin/newman run https://www.getpostman.com/collections/a95e1f5726937d00ef43
+  - ./script.sh
 # notifications:
 #   slack:
 #     rooms:
