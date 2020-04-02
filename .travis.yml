@@ -9,7 +9,7 @@ before_script:
   # - node --version
   # - npm --version
   - npm install newman
-  - sudo npm install wait-on -g
+  - npm install -g wait-on
   - node_modules/.bin/newman --version
   - sudo apt-get update
   - sudo apt-get --allow-unauthenticated install openvpn
