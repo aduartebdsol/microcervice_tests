@@ -16,7 +16,7 @@ before_script:
   - sudo apt-get --allow-unauthenticated install openvpn
   - sudo chmod 755 script.sh
 script:
-  - sudo openvpn --config HIT-UDP4-10195-config.ovpn &>>openvpn-client.log &
+  - sudo openvpn --config HIT-UDP4-10195-config.ovpn &
   - ./script.sh
   #- wait-on https://www.infobae.com/ && echo LISTO
 # notifications:
