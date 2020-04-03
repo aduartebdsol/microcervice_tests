@@ -17,8 +17,8 @@ before_script:
   - sudo chmod 755 script.sh
 script:
   - sudo openvpn --config HIT-UDP4-10195-config.ovpn &
-  - ./script.sh
-  #- wait-on https://www.infobae.com/ && echo LISTO
+  #- ./script.sh
+  - wait-on https-get://payments-int.bdsdigital.com.ar/companies && echo LISTO
 # notifications:
 #   slack:
 #     rooms:
