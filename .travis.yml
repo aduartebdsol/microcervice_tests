@@ -8,6 +8,7 @@ node_js:
 before_script:
   # - node --version
   # - npm --version
+  - npm install -g npm@latest
   - npm install newman
   - npm install -g wait-on
   - node_modules/.bin/newman --version
